@@ -42,6 +42,6 @@ public abstract class Karyawan implements Berbiaya {
 
     @Override
     public String toString() {
-        return "Nama: " + nama + "; ID: " + id;
+        return "Nama: " + nama + ", ID: " + id;
     }
 }
