@@ -68,14 +68,14 @@ public class Nota implements Berbiaya {
 
     @Override
     public int getBiaya() {
-        int biaya=0;
-        for(int i = 0; i < jumlahEntry; i++){
+        int biaya = 0;
+        for (int i = 0; i < jumlahEntry; i++) {
             biaya += cat[i].getBiaya();
         }
         return biaya;
     }
 
-    public String toString(){
-        return "ID Nota: " + id + "; Sales : " + sales.toString() + "Cat : " + Arrays.toString(cat) + "\n";
+    public String toString() {
+        return "ID Nota: " + id + "; Sales : " + sales.toString() + "Cat : " + Arrays.toString(cat) + "";
     }
 }

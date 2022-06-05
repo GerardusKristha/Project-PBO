@@ -11,7 +11,7 @@ public class Ecer extends Cat {
         super(merek, hargaPokok, margin);
     }
 
-    public int autoMarginEcer() {
+    private int autoMarginEcer() {
         int margin = 0;
         switch (merek) {
             case NIPPON -> margin = 20000;

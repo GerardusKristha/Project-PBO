@@ -158,7 +158,7 @@ public class main {
             }
         }
 
-        for(int i = 0; i < daftarNota.length; i++){
+        for (int i = 0; i < daftarNota.length; i++) {
             berbiaya[lastIndex] = daftarNota[i];
             lastIndex++;
         }
@@ -194,9 +194,8 @@ public class main {
 
         System.out.println(Arrays.toString(daftarNota));
 
+
     }
-
-
 
 
 }
