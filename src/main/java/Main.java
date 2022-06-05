@@ -47,6 +47,7 @@ public class Main {
         listCat1[0] = new Ecer(NamaCat.NIPPON, 2);
         listCat1[1] = new Ecer(NamaCat.DULUX, 4);
         listCat1[2] = new Ecer(NamaCat.JOTUN, 2);
+        
         daftarNota[1] = new Nota("N02", bernardus);
         daftarNota[1].setCat(listCat1, 3);
 
