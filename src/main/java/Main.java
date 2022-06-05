@@ -103,7 +103,7 @@ public class Main {
 
         //Cetak array jumlahTerjual
         System.out.println("---------------------------\n Daftar Penjualan Bulanan\n");
-        System.out.println(" Daftar Penjualan Sales :");
+        System.out.println(" Daftar Penjualan Sales dan Dalam Nota :");
         for (int i = 0; i < lastIndex; i++) {
             System.out.println("- "+terjual[i].toString() + "\n  Jumlah terjual: "
                     + terjual[i].getJumlahTerjual()+"\n"
