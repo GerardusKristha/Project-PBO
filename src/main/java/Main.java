@@ -11,6 +11,10 @@ import karyawan.Sales;
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("================================================" +
+                    "\n                Toko MAJU MAKMUR             " +
+                    "\n================================================");
+        
         int gajiPokokSales = 3000000;
 
         Karyawan[] daftarKaryawan = new Karyawan[5];
@@ -74,9 +78,7 @@ public class Main {
                 salesString += daftarKaryawan[i].toString() + "\n";
             }
         }
-        System.out.println("================================================" +
-                    "\n                Toko MAJU MAKMUR             " +
-                    "\n================================================");
+
         System.out.println("Daftar karyawan\n");
         System.out.println(managerString);
         System.out.println(salesString);
