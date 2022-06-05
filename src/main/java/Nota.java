@@ -27,7 +27,7 @@ public class Nota implements Berbiaya {
     public void setCat(Cat[] cat, int jumlahEntry) {
         if (this.jumlahEntry != 0) {
             for (int i = 0; i < this.jumlahEntry; i++) {
-                sales.removePenjualan(this.cat[i].getJumlahTerjual());
+                sales.removeJumlahTerjual(this.cat[i].getJumlahTerjual());
             }
         }
         this.cat = cat;

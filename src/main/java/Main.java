@@ -10,7 +10,7 @@ import karyawan.Sales;
 
 import java.util.Arrays;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         int gajiPokokSales = 3000000;
@@ -67,7 +67,6 @@ public class main {
         String managerString = "Manager : \n";
         String salesString = "Sales : \n";
 
-        System.out.println("Toko Maju Makmur");
         for (int i = 0; i < daftarKaryawan.length; i++) {
             if (daftarKaryawan[i] instanceof Manajer) {
                 managerString += daftarKaryawan[i].toString() + "\n";
@@ -76,7 +75,8 @@ public class main {
                 salesString += daftarKaryawan[i].toString() + "\n";
             }
         }
-
+        System.out.println("Toko Maju Makmur");
+        System.out.println("Daftar karyawan");
         System.out.println(managerString);
         System.out.println(salesString);
 
@@ -102,7 +102,7 @@ public class main {
         System.out.println("Daftar Penjualan Bulanan");
         System.out.println("- Daftar Penjualan Sales :");
         for (int i = 0; i < lastIndex; i++) {
-            System.out.println(terjual[i].toString() + "\n Jumlah terjual: "
+            System.out.println(terjual[i].toString() + "\t Jumlah terjual: "
                     + terjual[i].getJumlahTerjual()
             );
         }
@@ -116,14 +116,14 @@ public class main {
                 }
             }
         }
-        System.out.println("\nPenjualan Sales Terbanyak :");
-        System.out.println(salesMax);
+        System.out.println("\nSales dengan penjualan terbanyak :");
+        System.out.println(salesMax + "\t Jumlah terjual: " + salesMax.getJumlahTerjual());
 
         //Cat penjualan terbanyak
         int jotun = 0;
         int nippon = 0;
         int dulux = 0;
-        System.out.println("\nPenjualan Cat Terbanyak :");
+        System.out.println("\nPenjualan cat terbanyak :");
         for (int i = 0; i < lastIndex; i++) {
             if (terjual[i] instanceof Cat) {
                 switch (((Cat) terjual[i]).getMerek()) {
@@ -163,12 +163,17 @@ public class main {
             lastIndex++;
         }
 
+        System.out.println("\nDaftar objek berbiaya:");
+        for(int i = 0; i < lastIndex; i++){
+            System.out.println(berbiaya[i] + "; Biaya: " + berbiaya[i].getBiaya());
+        }
+
         //Gaji tertinggi
         Karyawan karyawanMax = null;
         for (int i = 0; i < lastIndex; i++) {
             if (berbiaya[i] instanceof Karyawan) {
                 if (karyawanMax != null) {
-                    if (karyawanMax.getBiaya() > berbiaya[i].getBiaya()) {
+                    if (karyawanMax.getBiaya() < berbiaya[i].getBiaya()) {
                         karyawanMax = (Karyawan) berbiaya[i];
                     }
                 } else {
@@ -176,25 +181,23 @@ public class main {
                 }
             }
         }
-        System.out.println("karyawan max");
-        System.out.println(karyawanMax);
+        System.out.println("\n\nGaji karyawan tertinggi: ");
+        System.out.println(karyawanMax + "; Gaji :" + karyawanMax.getBiaya());
 
         //Keuntungan
         int profit = 0;
-
+        System.out.println("Aliran keuangan toko: ");
         for (int i = 0; i < lastIndex; i++) {
             if (berbiaya[i] instanceof Karyawan) {
+                System.out.println(berbiaya[i] + "; Keuntungan : " + (-berbiaya[i].getBiaya()));
                 profit -= berbiaya[i].getBiaya();
             } else if (berbiaya[i] instanceof Nota) {
+                System.out.println(berbiaya[i] + "; Keuntungan : " + (berbiaya[i].getBiaya()));
                 profit += berbiaya[i].getBiaya();
             }
         }
 
-        System.out.println("profit " + profit);
-
-        System.out.println(Arrays.toString(daftarNota));
-
-
+        System.out.println("\nKeuntungan toko: " + profit);
     }
 
 

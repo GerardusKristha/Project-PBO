@@ -26,11 +26,8 @@ public class Sales extends Karyawan implements JumlahTerjual {
         return (jumlahTerjual * KOMISI_PER_PENJUALAN) + gajiPokok;
     }
 
-    public void addPenjualan(int penjualan) {
-        this.jumlahTerjual += penjualan;
-    }
 
-    public void removePenjualan(int penjualan) {
+    public void removeJumlahTerjual(int penjualan) {
         this.jumlahTerjual -= penjualan;
     }
 }
