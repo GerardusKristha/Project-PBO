@@ -165,7 +165,7 @@ public class Main {
 
         System.out.println("\n---------------------------\n Daftar objek berbiaya:");
         for(int i = 0; i < lastIndex; i++){
-            System.out.println(berbiaya[i] + "\n  Biaya: " + berbiaya[i].getBiaya()+"\n");
+            System.out.println("- "+berbiaya[i] + "\n  Biaya: " + berbiaya[i].getBiaya()+"\n");
         }
 
         //Gaji tertinggi
@@ -182,22 +182,22 @@ public class Main {
             }
         }
         System.out.println("\n---------------------------\n Gaji karyawan tertinggi: ");
-        System.out.println(karyawanMax + "; Gaji :" + karyawanMax.getBiaya());
+        System.out.println("- "+karyawanMax + ", Gaji :" + karyawanMax.getBiaya());
 
         //Keuntungan
         int profit = 0;
         System.out.println("\n---------------------------\nAliran keuangan toko: ");
         for (int i = 0; i < lastIndex; i++) {
             if (berbiaya[i] instanceof Karyawan) {
-                System.out.println(berbiaya[i] + "; Keuntungan : " + (-berbiaya[i].getBiaya()));
+                System.out.println("- "+berbiaya[i] + "\n  Keuntungan : " + (-berbiaya[i].getBiaya())+"\n");
                 profit -= berbiaya[i].getBiaya();
             } else if (berbiaya[i] instanceof Nota) {
-                System.out.println(berbiaya[i] + "; Keuntungan : " + (berbiaya[i].getBiaya()));
+                System.out.println("- "+berbiaya[i] + "; Keuntungan : " + (berbiaya[i].getBiaya()));
                 profit += berbiaya[i].getBiaya();
             }
         }
 
-        System.out.println("\nKeuntungan toko: " + profit);
+        System.out.println("\n---------------------------\nKeuntungan toko: " + profit+"\n");
     }
 
 
