@@ -3,17 +3,19 @@ package karyawan;
 import interfaces.Berbiaya;
 
 public abstract class Karyawan implements Berbiaya {
+    protected int gajiPokok;
     private String nama;
     private String id;
-    protected int gajiPokok;
 
-    public Karyawan(){
-        this("","-00");
+    public Karyawan() {
+        this("", "-00");
     }
+
     public Karyawan(String nama, String id) {
         this.nama = nama;
         this.id = id;
     }
+
     public String getNama() {
         return nama;
     }
@@ -39,7 +41,7 @@ public abstract class Karyawan implements Berbiaya {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Nama: " + nama + "; ID: " + id;
     }
 }

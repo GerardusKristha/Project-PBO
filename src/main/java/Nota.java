@@ -1,7 +1,8 @@
 import cat.Cat;
+import interfaces.Berbiaya;
 import karyawan.Sales;
 
-public class Nota {
+public class Nota implements Berbiaya {
 
     public static final int TOTAL_CAT_NOTA = 3;
 
@@ -11,7 +12,7 @@ public class Nota {
     private int jumlahEntry = 0;
 
 
-    public Nota(String id, Sales sales){
+    public Nota(String id, Sales sales) {
         this.id = id;
         this.sales = sales;
         cat = new Cat[TOTAL_CAT_NOTA];
@@ -21,16 +22,22 @@ public class Nota {
         return cat;
     }
 
-    public void setCat(Cat[] cat, int jumlahEntry){
+    public void setCat(Cat[] cat, int jumlahEntry) {
+        if (this.jumlahEntry != 0) {
+            for (int i = 0; i < this.jumlahEntry; i++) {
+                sales.removePenjualan(this.cat[i].getJumlahTerjual());
+            }
+        }
         this.cat = cat;
         this.jumlahEntry = jumlahEntry;
-        for(int i = 0; i <jumlahEntry;i++){
-            sales.addPenjualan(cat[i].getJumlahTerjual());
+        for (int i = 0; i < jumlahEntry; i++) {
+            sales.addJumlahTerjual(cat[i].getJumlahTerjual());
         }
+
     }
 
-    public void addCat(Cat cat){
-        if(jumlahEntry < 3){
+    public void addCat(Cat cat) {
+        if (jumlahEntry < 3) {
             this.cat[jumlahEntry] = cat;
             jumlahEntry++;
             sales.addJumlahTerjual(cat.getJumlahTerjual());
@@ -55,5 +62,14 @@ public class Nota {
 
     public int getJumlahEntry() {
         return jumlahEntry;
+    }
+
+    @Override
+    public int getBiaya() {
+        int biaya=0;
+        for(int i = 0; i < jumlahEntry; i++){
+            biaya += cat[i].getBiaya();
+        }
+        return biaya;
     }
 }

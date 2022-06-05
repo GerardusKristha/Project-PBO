@@ -1,19 +1,19 @@
 package cat;
 
-public class Ecer extends Cat{
+public class Ecer extends Cat {
 
-    public Ecer(NamaCat merek, int jumlahTerjual){
-        super(merek,jumlahTerjual);
+    public Ecer(NamaCat merek, int jumlahTerjual) {
+        super(merek, jumlahTerjual);
         margin = autoMarginEcer();
     }
 
-    public Ecer(NamaCat merek, int hargaPokok, int margin){
+    public Ecer(NamaCat merek, int hargaPokok, int margin) {
         super(merek, hargaPokok, margin);
     }
 
-    public int autoMarginEcer(){
+    public int autoMarginEcer() {
         int margin = 0;
-        switch (merek){
+        switch (merek) {
             case NIPPON -> margin = 20000;
             case JOTUN -> margin = 15000;
             case DULUX -> margin = 17000;

@@ -1,11 +1,16 @@
+import cat.Cat;
+import cat.Ecer;
+import cat.Grosir;
+import cat.NamaCat;
 import interfaces.Berbiaya;
 import interfaces.JumlahTerjual;
-import karyawan.*;
-import cat.*;
+import karyawan.Karyawan;
+import karyawan.Manajer;
+import karyawan.Sales;
 
 public class main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int gajiPokokSales = 3000000;
 
         Karyawan[] daftarKaryawan = new Karyawan[5];
@@ -18,16 +23,16 @@ public class main {
 
         Sales echa = new Sales("Echa", "S01");
         echa.setGajiPokok(gajiPokokSales);
-        daftarKaryawan [1] = echa;
+        daftarKaryawan[1] = echa;
 
-        Sales bernardus =  new Sales ("Bernardus", "S02");
+        Sales bernardus = new Sales("Bernardus", "S02");
         bernardus.setGajiPokok(gajiPokokSales);
-        daftarKaryawan [2] = bernardus;
+        daftarKaryawan[2] = bernardus;
 
         Manajer kristha = new Manajer("Kristha", "M01");
         kristha.setGajiPokok(4000000);
         kristha.setTunjangan(2500000);
-        daftarKaryawan [3] = kristha;
+        daftarKaryawan[3] = kristha;
 
         Sales hersa = new Sales("Hersa", "S04");
         hersa.setGajiPokok(gajiPokokSales);
@@ -61,7 +66,7 @@ public class main {
         String salesString = "Sales : \n";
 
         System.out.println("Toko Maju Makmur");
-        for(int i = 0; i< daftarKaryawan.length; i++) {
+        for (int i = 0; i < daftarKaryawan.length; i++) {
             if (daftarKaryawan[i] instanceof Manajer) {
                 managerString += daftarKaryawan[i].toString() + "\n";
             }
@@ -77,15 +82,15 @@ public class main {
         JumlahTerjual[] terjual = new JumlahTerjual[100];
         int lastIndex = 0;
 
-        for(int i = 0;i <daftarKaryawan.length;i++){
-            if(daftarKaryawan[i] instanceof Sales){
+        for (int i = 0; i < daftarKaryawan.length; i++) {
+            if (daftarKaryawan[i] instanceof Sales) {
                 terjual[lastIndex] = (JumlahTerjual) daftarKaryawan[i];
                 lastIndex++;
             }
         }
 
-        for(int i = 0;i< daftarNota.length;i++){
-            for(int j = 0; j < daftarNota[i].getJumlahEntry();j++){
+        for (int i = 0; i < daftarNota.length; i++) {
+            for (int j = 0; j < daftarNota[i].getJumlahEntry(); j++) {
                 terjual[lastIndex] = daftarNota[i].getCat()[j];
                 lastIndex++;
             }
@@ -94,17 +99,17 @@ public class main {
         //Cetak array jumlahTerjual
         System.out.println("Daftar Penjualan Bulanan");
         System.out.println("- Daftar Penjualan Sales :");
-        for(int i = 0; i <lastIndex ; i++){
-            System.out.println(terjual[i].toString()+"\n Jumlah terjual: "
-                    +terjual[i].getJumlahTerjual()
+        for (int i = 0; i < lastIndex; i++) {
+            System.out.println(terjual[i].toString() + "\n Jumlah terjual: "
+                    + terjual[i].getJumlahTerjual()
             );
         }
 
         //Sales penjualan terbanyak
-        Sales salesMax = new Sales("","");
-        for(int i = 0; i < lastIndex;i++){
-            if(terjual[i] instanceof Sales){
-                if(terjual[i].getJumlahTerjual() > salesMax.getJumlahTerjual()){
+        Sales salesMax = new Sales("", "");
+        for (int i = 0; i < lastIndex; i++) {
+            if (terjual[i] instanceof Sales) {
+                if (terjual[i].getJumlahTerjual() > salesMax.getJumlahTerjual()) {
                     salesMax = (Sales) terjual[i];
                 }
             }
@@ -117,46 +122,51 @@ public class main {
         int nippon = 0;
         int dulux = 0;
         System.out.println("\nPenjualan Cat Terbanyak :");
-        for(int i = 0; i<lastIndex;i++){
-            if(terjual[i] instanceof Cat){
-                switch (((Cat) terjual[i]).getMerek()){
+        for (int i = 0; i < lastIndex; i++) {
+            if (terjual[i] instanceof Cat) {
+                switch (((Cat) terjual[i]).getMerek()) {
                     case DULUX -> dulux += terjual[i].getJumlahTerjual();
                     case JOTUN -> jotun += terjual[i].getJumlahTerjual();
                     case NIPPON -> nippon += terjual[i].getJumlahTerjual();
                 }
             }
         }
-        if(jotun > nippon && jotun > dulux){
+        if (jotun > nippon && jotun > dulux) {
             System.out.println("- Jotun terjual terbanyak dengan jumlah: " + jotun);
         }
-        if(nippon > jotun && nippon > dulux){
+        if (nippon > jotun && nippon > dulux) {
             System.out.println("- Nippon terjual terbanyak dengan jumlah: " + nippon);
         }
-        if(dulux > nippon && dulux > jotun){
+        if (dulux > nippon && dulux > jotun) {
             System.out.println("- Dulux terjual terbanyak dengan jumlah: " + dulux);
         }
 
         //Berbiaya
         Berbiaya[] berbiaya = new Berbiaya[100];
         lastIndex = 0;
-        for(int i = 0;i <daftarKaryawan.length;i++){
+        for (int i = 0; i < daftarKaryawan.length; i++) {
             berbiaya[lastIndex] = daftarKaryawan[i];
             lastIndex++;
         }
 
-        for(int i = 0;i< daftarNota.length;i++){
-            for(int j = 0; j < daftarNota[i].getJumlahEntry();j++){
+        for (int i = 0; i < daftarNota.length; i++) {
+            for (int j = 0; j < daftarNota[i].getJumlahEntry(); j++) {
                 berbiaya[lastIndex] = daftarNota[i].getCat()[j];
                 lastIndex++;
             }
         }
 
+        for(int i = 0; i < daftarNota.length; i++){
+            berbiaya[lastIndex] = daftarNota[i];
+            lastIndex++;
+        }
+
         //Gaji tertinggi
-        Karyawan karyawanMax=null;
-        for(int i = 0; i < lastIndex;i++){
-            if(berbiaya[i] instanceof Karyawan){
-                if(karyawanMax != null){
-                    if(karyawanMax.getBiaya() > berbiaya[i].getBiaya()){
+        Karyawan karyawanMax = null;
+        for (int i = 0; i < lastIndex; i++) {
+            if (berbiaya[i] instanceof Karyawan) {
+                if (karyawanMax != null) {
+                    if (karyawanMax.getBiaya() > berbiaya[i].getBiaya()) {
                         karyawanMax = (Karyawan) berbiaya[i];
                     }
                 } else {
@@ -170,10 +180,10 @@ public class main {
         //Keuntungan
         int profit = 0;
 
-        for(int i = 0; i<lastIndex;i++){
-            if(berbiaya[i] instanceof Karyawan){
+        for (int i = 0; i < lastIndex; i++) {
+            if (berbiaya[i] instanceof Karyawan) {
                 profit -= berbiaya[i].getBiaya();
-            } else if(berbiaya[i] instanceof Cat){
+            } else if (berbiaya[i] instanceof Nota) {
                 profit += berbiaya[i].getBiaya();
             }
         }

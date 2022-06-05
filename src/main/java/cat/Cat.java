@@ -10,13 +10,13 @@ public abstract class Cat implements JumlahTerjual, Berbiaya {
     protected NamaCat merek;
     protected int margin;
 
-    public Cat(NamaCat merek, int jumlahTerjual){
+    public Cat(NamaCat merek, int jumlahTerjual) {
         this.merek = merek;
         this.jumlahTerjual = jumlahTerjual;
         hargaPokok = autoHargaPokok();
     }
 
-    public Cat(NamaCat merek, int hargaPokok, int margin){
+    public Cat(NamaCat merek, int hargaPokok, int margin) {
         this.merek = merek;
         this.hargaPokok = hargaPokok;
         this.margin = margin;
@@ -30,7 +30,7 @@ public abstract class Cat implements JumlahTerjual, Berbiaya {
         this.merek = merek;
     }
 
-    public int getJumlahTerjual(){
+    public int getJumlahTerjual() {
         return jumlahTerjual;
     }
 
@@ -44,20 +44,21 @@ public abstract class Cat implements JumlahTerjual, Berbiaya {
         this.margin = margin;
     }
 
-    public int getBiaya(){
+    public int getBiaya() {
         return (margin + hargaPokok) * jumlahTerjual;
     }
 
-    private int autoHargaPokok(){
-        int hargaPokok=0;
-        switch (merek){
+    private int autoHargaPokok() {
+        int hargaPokok = 0;
+        switch (merek) {
             case DULUX -> hargaPokok = 175000;
             case JOTUN -> hargaPokok = 160000;
             case NIPPON -> hargaPokok = 180000;
         }
         return hargaPokok;
     }
-    public int getHargaPokok(){
+
+    public int getHargaPokok() {
         return hargaPokok;
     }
 
@@ -65,7 +66,7 @@ public abstract class Cat implements JumlahTerjual, Berbiaya {
         this.hargaPokok = hargaPokok;
     }
 
-    public String toString(){
+    public String toString() {
         return "Merek : " + merek;
     }
 }
