@@ -2,6 +2,8 @@ import cat.Cat;
 import interfaces.Berbiaya;
 import karyawan.Sales;
 
+import java.util.Arrays;
+
 public class Nota implements Berbiaya {
 
     public static final int TOTAL_CAT_NOTA = 3;
@@ -71,5 +73,9 @@ public class Nota implements Berbiaya {
             biaya += cat[i].getBiaya();
         }
         return biaya;
+    }
+
+    public String toString(){
+        return "ID Nota: " + id + "; Sales : " + sales.toString() + "Cat : " + Arrays.toString(cat) + "\n";
     }
 }

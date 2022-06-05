@@ -8,6 +8,8 @@ import karyawan.Karyawan;
 import karyawan.Manajer;
 import karyawan.Sales;
 
+import java.util.Arrays;
+
 public class main {
 
     public static void main(String[] args) {
@@ -190,7 +192,11 @@ public class main {
 
         System.out.println("profit " + profit);
 
+        System.out.println(Arrays.toString(daftarNota));
+
     }
+
+
 
 
 }
